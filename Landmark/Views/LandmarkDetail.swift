@@ -31,6 +31,8 @@ struct LandmarkDetail: View {
                         HStack {
                             Text(landmark.park)
                             FavoriteStarButton(isFavorite: $modelData.landmarks[landmarkIndex].isFavorite)
+
+
                             Spacer(minLength: 100.0)
                             Text(landmark.state)
                         }
@@ -45,6 +47,11 @@ struct LandmarkDetail: View {
                     Text(landmark.description)
                 }
                 .padding()
+                .onAppear() {
+                    Task {
+                        print("52 .onAppear() \(modelData.categories)")
+                    }
+                }
             }
         }
     }

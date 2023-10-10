@@ -12,6 +12,17 @@ import SwiftUI
 class ModelData: ObservableObject {
     @Published public var landmarks: [Landmark] = load("landmarkData.json")
     public var hikes: [Hike] = load("hikeData.json")
+
+    var categories: [String: [Landmark]] {
+        Dictionary(grouping: landmarks) { element in
+            element.category.rawValue
+        }
+    }
+    var features: [Landmark] {
+        landmarks.filter { item in
+            item.isFeatured
+        }
+    }
 }
 
 
