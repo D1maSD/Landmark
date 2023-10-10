@@ -9,8 +9,22 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+
+    @State private var selected: Tab = .featured
+
+    enum Tab {
+        case featured
+        case list
+    }
+
     var body: some View {
-        LandmarkList()
+        TabView(selection: $selected, content: {
+            LandmarkList()
+                .tag(Tab.list)
+
+            CategoryHome()
+                .tag(Tab.featured)
+        })
     }
 }
 

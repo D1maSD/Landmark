@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryHome: View {
-    @EnvironmentObject var dataModel: ModelData
+    @State var dataModel: ModelData
     var body: some View {
         NavigationView {
             List {
@@ -20,12 +20,8 @@ struct CategoryHome: View {
                     .listRowInsets(EdgeInsets())
 
                 ForEach(dataModel.categories.keys.sorted(), id: \.self) { key in
-                    NavigationLink {
-                        LandmarkDetail(landmark: dataModel.landmarks[0])
-                    } label: {
-                        CategoryRow(categoryName: key, items: dataModel.categories[key]!)
-                    }
-//                    CategoryRow(categoryName: key, items: dataModel.categories[key]!)
+
+                    CategoryRow(categoryName: key, items: dataModel.categories[key]!)
                 }
                 .listRowInsets(EdgeInsets())
             }
