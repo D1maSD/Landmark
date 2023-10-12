@@ -8,31 +8,36 @@
 import SwiftUI
 
 struct CategoryHome: View {
-    @State var dataModel: ModelData
+    @ObservedObject var modelData = ModelData()
+
     var body: some View {
         NavigationView {
             List {
-                dataModel.features[0].image
+                modelData.features[0].image
                     .resizable()
                     .scaledToFill()
                     .frame(height: 200)
                     .clipped()
                     .listRowInsets(EdgeInsets())
 
-                ForEach(dataModel.categories.keys.sorted(), id: \.self) { key in
-
-                    CategoryRow(categoryName: key, items: dataModel.categories[key]!)
+                ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
+                    CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
                 .listRowInsets(EdgeInsets())
+
             }
-                .navigationTitle("Category home")
+            .navigationTitle("Featured")
+
         }
     }
 }
 
+
 struct CategoryHome_Previews: PreviewProvider {
+
     static var previews: some View {
+        let modelData = ModelData()
         CategoryHome()
-            .environmentObject(ModelData())
+            .environmentObject(modelData)
     }
 }

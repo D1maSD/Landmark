@@ -45,18 +45,3 @@ struct LandmarkList_Previews: PreviewProvider {
 
     }
 }
-
-
-
-//class ModelData: ObservableObject {
-//    @Published public var landmarks: [Landmark] = load("landmarkData.json")
-//}
-//
-//@State var isFilteredLandmarks: Bool = false
-//    var filteredLandmarks: [Landmark] {
-//        modelData.landmarks.filter { landmark in
-//            (!isFilteredLandmarks || landmark.isFavorite)
-//        }
-//    }
-//В строчке modelData.landmarks.filter { landmark in появилась ошибка, вот текст ошибки
-//Thread 1: Fatal error: No ObservableObject of type ModelData found. A View.environmentObject(_:) for ModelData may be missing as an ancestor of this view.

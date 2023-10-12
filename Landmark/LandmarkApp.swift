@@ -11,9 +11,7 @@ import SwiftUI
 struct LandmarkApp: App {
     var body: some Scene {
         WindowGroup {
-//            LandmarkRow(landmark: landmarks[0])
-//            LandmarkList()
-            CategoryHome()
+            ContentView()
         }
     }
 }

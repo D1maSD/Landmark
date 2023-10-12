@@ -39,8 +39,6 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
-                    // duration создает замедление
-//                    withAnimation(.easeInOut(duration: 4)) {
                     withAnimation {
                         showDetail.toggle()
                     }
@@ -50,10 +48,8 @@ struct HikeView: View {
                         .labelStyle(.iconOnly)
                         .imageScale(.large)
                         .rotationEffect(.degrees(showDetail ? 180 : 0))
-//                        .animation(nil, value: showDetail)
                         .scaleEffect(showDetail ? 1.5 : 1)
                         .padding()
-//                        .animation(.spring(), value: showDetail)
                 }
             }
 
