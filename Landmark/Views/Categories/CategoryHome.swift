@@ -11,9 +11,10 @@ struct CategoryHome: View {
     @ObservedObject var modelData = ModelData()
 
     var body: some View {
+
         NavigationView {
             List {
-                modelData.features[0].image
+                    Image("turtlerock")
                     .resizable()
                     .scaledToFill()
                     .frame(height: 200)
